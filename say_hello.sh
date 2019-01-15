@@ -1,1 +1,1 @@
-echo "Hello this is jenkins simple example build"
+echo "Hello from feature/hello_from_branch to jenkins"

@@ -1,0 +1,14 @@
+node('master') {
+
+ try {
+    stage("echo") {
+        sh 'echo "Hello World!"'
+        def obj = null
+        sh "${obj.class}"
+    }
+  }catch (Exception e) {
+      //error 'broken pipeline '+e
+      //currentBuild.result='FAILURE'
+      currentBuild.result="UNSTABLE"
+  }
+}

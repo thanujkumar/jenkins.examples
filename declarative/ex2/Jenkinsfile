@@ -1,0 +1,39 @@
+pipeline{
+            agent any
+            
+            tools {
+              maven 'maven-3.5.4'
+              jdk 'jdk1.8.0_181'
+            }
+            
+            parameters {
+                string(name: 'VERSION', defaultValue: '1.0.0', description: 'What is the version to build?')
+            }
+            stages {
+                stage('initialize') {
+                    steps {
+                        sh '''
+                           echo "PATH = ${PATH}"
+                           echo "M2_HOME = ${M2_HOME}"
+                           echo "JAVA_HOME = ${JAVA_HOME}"
+                        '''
+                    }
+                }
+                stage('first') {
+                    steps {
+                     echo 'first stage'
+                    }
+                }
+                stage('second') {
+                    steps {
+                        echo 'second stage'
+                    }
+                }
+            }
+            
+            post {
+                always {
+                    echo "Pipeline executed -${params.VERSION}"
+                }
+    }
+}

@@ -16,3 +16,5 @@ node('master') { ////To point to specific jenkins labeled node
       junit '**/*/target/surefire-reports/*.xml'
       archive 'target/*.jar'
    }
+}
+ 

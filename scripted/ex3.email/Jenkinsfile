@@ -11,7 +11,7 @@ node('master') {
       currentBuild.result='FAILURE'
   } finally {
       stage('send notification email') {
-          mail bcc: '', body: 'something is wrong with ${env.BUILD_URL}', cc: '', from: 'jenkins.home.amd@gmail.com', replyTo: '', subject: 'Failed pipeline: ${currentBuild.fullDisplayName}', to: 'jenkins.home.amd@gmail.com'
+          mail bcc: '', body: 'something is wrong with ${env.BUILD_URL}', cc: '', from: 'jenkins.home.amd@gmail.com', replyTo: '', subject: 'Failed pipeline: ${currentBuild.fullDisplayName}', to: 'jenkins.home.amd@gmail.com',   body: """<p>EXCEPTION: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p><p>Check console output at &QUOT;<a href='${env.BUILD_URL}'>${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>&QUOT;</p>"""
           //Two emails above and below
           notifyException()
       }

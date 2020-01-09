@@ -1,5 +1,5 @@
 pipeline{
-            agent 'jenkins-slave'
+            agent {jenkins-slave}
             
             tools {
               maven 'maven-3.5.4'

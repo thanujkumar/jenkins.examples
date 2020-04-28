@@ -9,7 +9,7 @@ pipeline {
       steps {
         //git 'https://github.com/thanujkumar/bean-validation2.git'
         //Using ssh keys on the docker container
-        git 'ssh://git@github.com:thanujkumar/jenkins.examples.git'
+        git 'ssh://git@github.com/thanujkumar/jenkins.examples.git'
       }
     }
 
